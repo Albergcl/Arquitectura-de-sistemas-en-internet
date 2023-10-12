@@ -6,7 +6,8 @@ export interface ResponseData{
 
 export interface Type{
     name: string,
-    url: string
+    url: string,
+    slot: number
 }
 
 const fetchData = async() => {
@@ -20,7 +21,7 @@ const fetchData = async() => {
         console.log("---------------------------------");
         console.log("Nombre: ", data.name);
         data.types.forEach(t => {
-            console.log("Tipo/s: ", t.name);
+            console.log("Tipo/s: ", t.type.name);
         });
         console.log("Id: ", data.id);
     } catch(error){
