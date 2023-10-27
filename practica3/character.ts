@@ -32,4 +32,6 @@ const getCharacter = async(numPersonaje: number):Promise<Character> => {
     };
 }
 
+
+
 export default getCharacter;

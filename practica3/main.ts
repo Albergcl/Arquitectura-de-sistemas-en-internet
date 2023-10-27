@@ -1,6 +1,7 @@
 import express, {Request, Response} from "npm:express@4.18.2"
-import getCharacter from "./character.ts";
-import getLocation from "./location.ts";
+import getCharacter from "./character";
+import getLocation from "./location";
+import filterCharacter from "./filterCharacters";
 
 const app = express();
 
@@ -34,6 +35,26 @@ app.get("/location/:localizacion", async (req: Request, res: Response) => {
             dimension: location.dimension,
             created: location.created.getDate() + "-" + location.created.getMonth() + "-" + location.created.getFullYear()
         });
+    }catch(error){
+        console.log(error);
+    }
+});
+
+app.get("/character/filter/:estado/:genero", async (req: Request, res: Response) => {
+    try{
+        const filtro_estado = req.params.estado;
+        const filtro_genero = req.params.genero;
+        const filter = await filterCharacter(filtro_estado, filtro_genero);
+        res.send({
+            id: filter.id,
+            name: filter.name,
+            status: filter.status,
+            species: filter.species,
+            gender: filter.gender,
+            origin: filter.origin.name,
+            location: filter.location.name,
+            created: filter.created.getDate() + "-" + filter.created.getMonth() + "-" + filter.created.getFullYear()
+        })
     }catch(error){
         console.log(error);
     }
