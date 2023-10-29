@@ -1,21 +1,4 @@
-type Character = {
-    id: number,
-    name: string,
-    status: string,
-    species: string,
-    gender: string,
-    origin: Origin,
-    location: Location,
-    created: Date
-}
-
-type Origin = {
-    name: string
-}
-
-type Location = {
-    name: string
-}
+import { Character } from "../types.ts";
 
 const getCharacter = async(numPersonaje: number):Promise<Character> => {
     const URL = `https://rickandmortyapi.com/api/character/${numPersonaje}`;

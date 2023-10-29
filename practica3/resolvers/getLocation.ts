@@ -1,12 +1,4 @@
-type Location = {
-    id: number,
-    name: string,
-    type: string,
-    dimension: string,
-    created: Date
-}
-
-
+import { Location } from "../types.ts";
 
 const getLocation = async(numLocation: number):Promise<Location> => {
     const URL = `https://rickandmortyapi.com/api/location/${numLocation}`;
