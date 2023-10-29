@@ -50,15 +50,6 @@ app.get("/character/:personaje", async (req: Request, res: Response) => {
     try{
         const personaje = req.params.personaje;
 
-        /*let character: Character;
-
-        if(listaCharacter.some(p => p.id === personaje)){
-            const index = listaCharacter.findIndex(f => f.id === personaje);
-            //character = listaCharacter.at(index);
-            //res.send({character});
-        }else{
-            
-        }*/
         const character = await getCharacter(personaje);
             //listaCharacter.push(character);
             res.send({
