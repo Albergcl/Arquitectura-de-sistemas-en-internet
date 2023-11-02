@@ -1,4 +1,4 @@
-import express, { Request, Response } from "npm:express@4.18.2";
+import express, { type Request, Response } from "npm:express@4.18.2";
 import { Character, RootC, RootL, Location } from "./types.ts";
 
 import getAllCharacters from "./resolvers/getAllCharacters.ts";
